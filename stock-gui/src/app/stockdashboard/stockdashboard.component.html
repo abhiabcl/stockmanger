@@ -1,0 +1,10 @@
+
+
+<div class="container">
+	<form #userlogin="ngForm" (ngSubmit)="onClickSubmit(userlogin.value)">
+		<input type="text" class="form-control" name="username" placeholder="username" ngModel>
+		<br />
+
+		<input type="submit" class="btn btn-success" value="submit">
+	</form>
+</div>

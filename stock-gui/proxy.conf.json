@@ -1,0 +1,9 @@
+{
+    "/api/stock-service/": {
+      "target": "http://localhost:8070/",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+
+  

@@ -1,0 +1,13 @@
+<div class="container">
+  <table>
+    <tr>
+      <th>Stock Name</th>
+      <th>Price</th>
+    </tr>
+    <tr *ngFor="let stock of stocks">
+      <td>{{ stock.quote }}</td>
+      <td>{{ stock.price }}</td>
+    </tr>
+  </table>
+
+</div>

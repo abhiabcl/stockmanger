@@ -1,0 +1,13 @@
+<div style="text-align:center">
+	<h1> Welcome to {{title}}. </h1>
+
+	<nav>
+		<a routerLink="/stockdashboard" routerLinkActive="active">Dashboard</a>
+	</nav>
+</div>
+
+
+
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+	<router-outlet #routerOutlet="outlet"></router-outlet>
+</div>
