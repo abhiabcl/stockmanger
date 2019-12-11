@@ -1,3 +1,32 @@
-<p>
-  stock management works!
-</p>
+<!-- 
+<div class="container">
+	<form #userstock="ngForm" (ngSubmit)="onClickSubmit(userstock.value)">
+    <label> User Name</label>
+    <input type="text" class="form-control" name="username" placeholder="username" ngModel>
+    <br/>
+     <label> Quote Name</label>
+		<input type="text" class="form-control" name="quote" placeholder="quote" ngModel>
+		<br />
+
+		<input type="submit" class="btn btn-success" value="submit">
+	</form>
+</div> -->
+
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" class="form-control" formControlName="username">
+    <div>
+      <h2>Stocks</h2>
+      <button (click)="addStock()">Add Stock</button>
+
+      <div formArrayName="credentials" *ngFor="let stock of form.controls.quotes?.value; let i = index">
+        <ng-container [formGroupName]="i">
+          <input placeholder="stock" formControlName="stock">
+        </ng-container>
+      </div>
+
+    </div>
+
+    <input type="submit" class="btn btn-success" value="submit">
+  </form>
+</div>

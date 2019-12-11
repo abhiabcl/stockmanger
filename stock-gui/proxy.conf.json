@@ -3,6 +3,12 @@
       "target": "http://localhost:8070/",
       "secure": false,
       "changeOrigin": true
+    },
+
+    "/api/db-service/": {
+      "target": "http://localhost:8070/",
+      "secure": false,
+      "changeOrigin": true
     }
   }
 

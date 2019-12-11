@@ -10,7 +10,6 @@ import { HttpclientService } from '../service/httpclient.service';
 })
 export class StockdashboardComponent implements OnInit {
   stocks: any[];
-  stockresponse: string;
 
   constructor(
     private httpClientService: HttpclientService, private router: Router
@@ -20,25 +19,29 @@ export class StockdashboardComponent implements OnInit {
   }
 
   handleSuccessfulResponse(data: any) {
-    this.httpClientService.setData(data);
 
-    this.stocks = data;
-    console.log('on dashboardPage ' + this.stockresponse);
+
+    this.stocks = data.body;
+    console.log('on dashboardPage ' + data);
     // tslint:disable-next-line: prefer-for-of
     for (var i = 0; i < this.stocks.length; i++) {
       console.log('Stock: ' + this.stocks[i].quote);
       console.log('Price: ' + this.stocks[i].price);
     }
-
+    this.httpClientService.setData(this.stocks);
     this.router.navigate(['stockview']);
   }
 
   onClickSubmit(data: any) {
-    // alert('Entered user name: ' + data.username);
+    console.log('Entered user name: ' + data.username);
     if (data.username != null) {
       this.httpClientService.getQuote(data.username).subscribe(
-        response => this.handleSuccessfulResponse(response),
-      );
+        response => {
+          if (response.status == 200)
+            this.handleSuccessfulResponse(response)
+          else
+            alert("Responde from api faile with error code: " + response.status);
+        });
     } else {
       alert('user not valid!');
     }

@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-
-
-export class Stocks {
-  constructor(
-    public quote: string,
-    public price: string
-  ) { }
-}
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -28,7 +21,19 @@ export class HttpclientService {
   ) { }
 
   getQuote(user: string) {
-    return this.httpClient.get<Stocks[]>('/api/stock-service/rest/stock/' + user);
+    return this.httpClient.get<any[]>('/api/stock-service/rest/stock/' + user, { observe: 'response' });
+  }
+
+  setQuote(postdata: any) {
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.httpClient.post<any>('/api/db-service/rest/db/', postdata, {
+      headers: httpHeaders,
+      observe: 'response'
+    });
   }
 
   setData(data) {
