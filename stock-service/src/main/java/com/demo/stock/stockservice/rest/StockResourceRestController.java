@@ -14,17 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 import yahoofinance.quotes.stock.StockQuote;
 
 @RestController
 @RequestMapping("/rest/stock")
+@Api(value = "Stock Management System for Quote", description = "Operations pertaining to user in Stock Management System")
 public class StockResourceRestController {
 
 	@Autowired
 	RestTemplate restTemplate;
 
+	@ApiOperation(value = "Get stock price for user.")
 	@GetMapping("/{username}")
 	public List<Quote> getStock(@PathVariable("username") final String userName) {
 

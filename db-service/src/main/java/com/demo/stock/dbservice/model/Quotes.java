@@ -2,9 +2,16 @@ package com.demo.stock.dbservice.model;
 
 import java.util.List;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "All details about the quote. ")
 public class Quotes {
 
+	@ApiModelProperty(notes = "User name for quote to be added.")
 	private String userName;
+	
+	@ApiModelProperty(notes = "List of quotes to manager for user.")
 	private List<String> quotes;
 
 	public Quotes() {
