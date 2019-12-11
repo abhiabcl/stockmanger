@@ -23,12 +23,12 @@ export class StockviewComponent implements OnInit {
     this.isvalid = true;
     this.stocks = this.stockresponse;
 
-    console.log('onServiceView Page' + this.stocks);
+    console.log('onServiceView total stock no.' + this.stocks.length);
     // tslint:disable-next-line: prefer-for-of
-    for (var i = 0; i < this.stocks.length; i++) {
-      console.log('Stock: ' + this.stocks[i].quote);
-      console.log('Price: ' + this.stocks[i].price);
-    }
+    // for (var i = 0; i < this.stocks.length; i++) {
+    //   console.log('Stock: ' + this.stocks[i].quote);
+    //   console.log('Price: ' + this.stocks[i].price);
+    // }
   }
 
 }
