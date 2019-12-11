@@ -1,0 +1,6 @@
+1. Run elasticsearch
+2. Uncomment kibana conf for elasticsearch url
+3. Create logstash config for Input, filter and output
+4. run logstash with config file
+   /config/> ../bin/logstash.bat -f logstatsh.config
+5. Create logstash-* index in kibana
